@@ -23,13 +23,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controller\HomeController::class, 'index'])->name('home');
 // 
     Route::middleware(['admin'])->group(function (){
         Route::resource('students',         StudentController::class);
         Route::resource('employees',        EmployeeController::class);
     });
-// });
+});
 
 
