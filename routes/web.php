@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    Employee, StudentController
+    EmployeeController, StudentController, HomeController 
 };
 
 
@@ -24,7 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [App\Http\Controller\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 // 
     Route::middleware(['admin'])->group(function (){
         Route::resource('students',         StudentController::class);
