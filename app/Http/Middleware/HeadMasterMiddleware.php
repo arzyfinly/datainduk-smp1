@@ -17,7 +17,7 @@ class HeadMasterMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role != "Kepala Sekolah"){
+        if (Auth::user()->level_id != "2"){
             return redirect()->to('logout');
         }
         return $next($request);

@@ -17,7 +17,8 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role != "Admin"){
+        if (Auth::user()->level_id != "1"){
+            // dd(Auth::user()->level_id != "1");
             return redirect()->to('logout');
         }
         return $next($request);

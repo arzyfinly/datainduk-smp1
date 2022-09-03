@@ -17,7 +17,7 @@ class GuardianClassMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role != "Wali Kelas"){
+        if (Auth::user()->level_id != "3"){
             return redirect()->to('logout');
         }
         return $next($request);
