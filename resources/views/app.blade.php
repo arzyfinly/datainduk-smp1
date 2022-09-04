@@ -13,6 +13,7 @@
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-bar-rating/css-stars.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/datatables/datatables.min.css') }}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -80,6 +81,7 @@
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+    <script type="text/javascript" charset="utf8" src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/jquery-bar-rating/jquery.barrating.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/flot/jquery.flot.js') }}"></script>
@@ -97,6 +99,25 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+
+    {{-- DataTables --}}
+    <script type="text/javascript">
+      $(document).ready(function() {
+          var table = $('#myTable').DataTable({
+              lengthChange: true,
+              buttons: [{
+                      extend: 'pdfHtml5',
+                      orientation: 'potrait',
+                      pageSize: 'LEGAL',
+                      download: 'open',
+                  },
+                  'copy', 'excel', 'csv'
+              ]
+          });
+          table.buttons().container()
+              .appendTo('#myTable_wrapper .col-md-6:eq(0)');
+      });
+  </script>
     <!-- End custom js for this page -->
   </body>
 </html>

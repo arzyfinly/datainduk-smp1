@@ -17,7 +17,7 @@
         <div class="card-body">
           <h4 class="card-title">Data Kelas</h4>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="myTable">
               <thead class="thead-light">
                 <tr>
                   <th>#</th>
@@ -37,49 +37,20 @@
                 </tr>
               </tfoot>
               <tbody>
-
+                @foreach ($classes as $class)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $class->kode }}</td>
+                  <td>{{ $class->nama }}</td>
+                  <td>{{ $class->deskripsi }}</td>
+                  <td> <button> HALO </button></td>
+                </tr>    
+                @endforeach
               </tbody>
             </table>
           </div>
         </div>
       </div>
   </div>
-</div>
-<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
-<script>
-$(document).ready(function(){
-    $('#dataTable').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: {
-            url: "{{ route('students.index') }}",
-            type: 'GET',
-        },
-        "responsive": true,
-        "language": {
-            "oPaginate": {
-                "sNext": "<i class='fas fa-angle-right'>",
-                "sPrevious": "<i class='fas fa-angle-left'>",
-            },
-           
-        },
-        columns: [{
-                data: 'DT_RowIndex',
-            },
-            {
-                data: 'kode',
-            },
-            {
-                data: 'nama',
-            },
-            {
-                data: 'deskripsi',
-            },           
-            {
-                data: 'action',
-            },
-        ],
-    });
-});
-</script>     
+</div>     
 @endsection
