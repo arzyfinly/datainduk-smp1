@@ -19,7 +19,7 @@ class AdminMiddleware
     {
         if (Auth::user()->level_id != "1"){
             // dd(Auth::user()->level_id != "1");
-            return redirect()->to('logout');
+            return redirect()->to('login');
         }
         return $next($request);
     }
