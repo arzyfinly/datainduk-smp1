@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    Employee, StudentController
+    Employee, StudentController, StudentClassController
 };
 
 
@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
 // 
     Route::middleware(['admin'])->group(function (){
         Route::resource('students',         StudentController::class);
+        Route::resource('classes',         StudentClassController::class);
         Route::resource('employees',        EmployeeController::class);
     });
 });

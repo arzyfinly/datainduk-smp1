@@ -2,11 +2,11 @@
 @section('content')
     
 <div class="page-header">
-    <a href="#"><h3 class="page-title">Student</h3></a>
+    <a href="#"><h3 class="page-title">Class</h3></a>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Student</a></li>
-          <li class="breadcrumb-item active" aria-current="page"> Data Siswa </li>
+          <li class="breadcrumb-item"><a href="#">Class</a></li>
+          <li class="breadcrumb-item active" aria-current="page"> Data Kelas </li>
         </ol>
     </nav>
 </div>
@@ -15,26 +15,24 @@
   <div class="col-xl-12 stretch-card grid-margin">
     <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Data Siswa</h4>
+          <h4 class="card-title">Data Kelas</h4>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead class="thead-light">
                 <tr>
                   <th>#</th>
-                  <th>NISN</th>
-                  <th>Nama</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Diterima Di Kelas</th>
+                  <th>Kode</th>
+                  <th>Nama Kelas</th>
+                  <th>Deskripsi</th>                  
                   <th>Action</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>#</th>
-                  <th>NISN</th>
-                  <th>Nama</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Diterima Di Kelas</th>
+                  <th>Kode</th>
+                  <th>Nama Kelas</th>
+                  <th>Deskripsi</th>                  
                   <th>Action</th>
                 </tr>
               </tfoot>
@@ -69,17 +67,14 @@ $(document).ready(function(){
                 data: 'DT_RowIndex',
             },
             {
-                data: 'nisn',
+                data: 'kode',
             },
             {
-                data: 'nama_lengkap',
+                data: 'nama',
             },
             {
-                data: 'jenis_kelamin',
-            },
-            {
-                data: 'diterima_dikelas',
-            },
+                data: 'deskripsi',
+            },           
             {
                 data: 'action',
             },

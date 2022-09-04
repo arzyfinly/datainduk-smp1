@@ -411,67 +411,102 @@
                                     <input type="date" class="form-control" placeholder="dd/mm/yyyy" />
                                 </div>
                             </div>
-                        </div>                        
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">No SKHUN</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">Tanggal Ijazah</label>
-                                    <div class="col-sm-8">
-                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">No Ijazah</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">Pindahan Dari Sekolah</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">Diterima Di Kelas</label>
-                                    <div class="col-sm-8">
-                                        <select class="form-control">
-                                            <option>7-1</option>
-                                            <option>7-2</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">Kelompok</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">Tanggal Penerimaan</label>
-                                    <div class="col-sm-8">
-                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy" />
-                                    </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">No SKHUN</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Tanggal Ijazah</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">No Ijazah</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Pindahan Dari Sekolah</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Diterima Di Kelas</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control">
+                                        <option>7-1</option>
+                                        <option>7-2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Kelompok</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Tanggal Penerimaan</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-description font-weight-bold">Hobby </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Kesenian</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Kesehatan Jasmani</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Keorganisasian</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Lain-Lain</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
