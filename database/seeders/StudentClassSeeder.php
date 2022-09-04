@@ -12,8 +12,8 @@ class StudentClassSeeder extends Seeder
     {
         $studentClass = [
             [
-                'kode' => 'VII',
-                'nama' => '7-1',
+                
+                'nama' => 'VII-1',
                 'deskripsi' => '-',  
             ],
            

@@ -34,8 +34,7 @@ class StudentClassController extends Controller
     public function store(StudentClassRequest $request)
     {
         $data = $request->all();
-        $class= StudentClass::create([
-            'kode' => $request->kode,
+        $class= StudentClass::create([        
             'nama' => $request->nama,
             'deskripsi' => $request->deskripsi,
         ]);   

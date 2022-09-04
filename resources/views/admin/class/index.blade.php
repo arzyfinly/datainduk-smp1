@@ -15,7 +15,16 @@
   <div class="col-xl-12 stretch-card grid-margin">
     <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Data Kelas</h4>
+            <div class="row mb-2">
+                <div class="col d-flex justify-content-start">
+                    <h4 class="card-title">Data Kelas</h4>           
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <a href="{{ route('classes.create') }}" class="btn btn-success mr-1">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </div>
+            </div>        
           <div class="table-responsive">
             <table class="table table-striped" id="myTable">
               <thead class="thead-light">

@@ -14,8 +14,7 @@ class StudentClassRequest extends FormRequest
 
     public function rules()
     {
-        return [
-            'kode'          => 'required',
+        return [            
             'nama'          => 'required|string|max:50',                 
             'deskripsi'     => 'required|string|max:255',                    
         ];
