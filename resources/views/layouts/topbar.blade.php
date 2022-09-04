@@ -10,13 +10,15 @@
         </button></a>
       </div>            
       <ul class="navbar-nav navbar-nav-right">
-      <form id="logout">
+        <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+              <li class="nav-item nav-logout d-none d-lg-block">
+                <i class="mdi mdi-logout"></i>
+              </li>
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
           @csrf
-          <button id="submit" class="btn btn-primary">
-            <li class="nav-item nav-logout d-none d-lg-block">
-            <i class="mdi mdi-logout"></i>
-        </li></button>
-      </form>          
+      </form>
         
       </ul>
       <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
