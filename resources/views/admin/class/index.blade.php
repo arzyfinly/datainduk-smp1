@@ -19,8 +19,8 @@
                 <div class="col d-flex justify-content-start">
                     <h4 class="card-title">Data Kelas</h4>           
                 </div>
-                <div class="col d-flex justify-content-end">
-                    <a href="{{ route('classes.create') }}" class="btn btn-success mr-1">
+                <div class="col d-flex justify-content-end mb-1">
+                    <a href="{{ route('classes.create') }}" class="btn btn-sm btn-success">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -30,7 +30,6 @@
               <thead class="thead-light">
                 <tr>
                   <th>#</th>
-                  <th>Kode</th>
                   <th>Nama Kelas</th>
                   <th>Deskripsi</th>                  
                   <th>Action</th>
@@ -39,7 +38,6 @@
               <tfoot>
                 <tr>
                   <th>#</th>
-                  <th>Kode</th>
                   <th>Nama Kelas</th>
                   <th>Deskripsi</th>                  
                   <th>Action</th>
@@ -49,10 +47,13 @@
                 @foreach ($classes as $class)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $class->kode }}</td>
                   <td>{{ $class->nama }}</td>
                   <td>{{ $class->deskripsi }}</td>
-                  <td> <button> HALO </button></td>
+                  <td> 
+                    <a class="btn btn-sm btn-warning text-light" href="{{ route('classes.edit', $class->id) }}"><i class="mdi mdi-lead-pencil"></i></a>
+                    &nbsp;
+                    <button onclick="deleteItem(this)" data-id="{{ $class->id }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                  </td>
                 </tr>    
                 @endforeach
               </tbody>
@@ -61,5 +62,6 @@
         </div>
       </div>
   </div>
-</div>     
+</div>
+@include('admin.class.remove_script')     
 @endsection

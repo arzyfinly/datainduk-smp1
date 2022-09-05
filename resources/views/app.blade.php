@@ -82,6 +82,7 @@
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script type="text/javascript" charset="utf8" src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     <script src="{{ asset('assets/vendors/jquery-bar-rating/jquery.barrating.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/flot/jquery.flot.js') }}"></script>

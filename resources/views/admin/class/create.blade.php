@@ -19,10 +19,6 @@
         <form class="forms-sample" action="{{route('classes.store')}}" method="POST">
           @csrf        
           <div class="form-group">
-            <label>Kode</label>
-            <input name="kode" type="text" class="form-control" id="kode"  />
-          </div>
-          <div class="form-group">
             <label>Nama Kelas</label>
             <input name="nama" type="text" class="form-control" id="nama"  />
           </div>

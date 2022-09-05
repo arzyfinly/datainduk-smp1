@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StudentClassRequest;
 use App\Models\{
-    StudentClass
+    StudentClass,Student
 };
 
 class StudentClassController extends Controller
@@ -33,11 +33,8 @@ class StudentClassController extends Controller
 
     public function store(StudentClassRequest $request)
     {
-        $data = $request->all();
-        $class= StudentClass::create([        
-            'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi,
-        ]);   
+        $data  = $request->all();
+        $class = StudentClass::create($data);   
         
         if ($class) {
             return redirect()
@@ -76,21 +73,24 @@ class StudentClassController extends Controller
         return redirect('/classes');
     }
 
-    public function destroy(StudentClass $studentClass)
+    public function destroy(StudentClass $class)
     {
-        $studentClass->delete();
-        if ($studentClass) {
-            return redirect()
-                ->route('classes.index')
-                ->with([
-                    'success' => 'Post has been deleted successfully'
-                ]);
-        } else {
-            return redirect()
-                ->route('classes.index')
-                ->with([
-                    'error' => 'Some problem has occurred, please try again'
-                ]);
+        $student = Student::where('class_id', $class->id)->count();
+        if ($user > 0){
+            return response()
+                ->json(array(
+                    'error'   => true,
+                    'title'   => 'Denied',
+                    'message' => 'Tidak bisa menghapus kelas dikarenakan masih ada siswa di kelas ' + $class->nama
+                ));
+        }else{
+            $class->delete();
+            return response()
+                ->json(array(
+                    'success' => true,
+                    'title'   => 'Success',
+                    'message' => 'Kelas berhasil terhapus permanent :)'
+                ));
         }
     }
 }
