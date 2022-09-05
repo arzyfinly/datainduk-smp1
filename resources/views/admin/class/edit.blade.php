@@ -20,10 +20,6 @@
           @csrf
           @method('PUT')
           <div class="form-group">
-            <label>Kode</label>
-            <input name="kode" type="text" class="form-control" id="kode" value="{{$class->kode}}" />
-          </div>
-          <div class="form-group">
             <label>Nama Kelas</label>
             <input name="nama" type="text" class="form-control" id="nama" value="{{$class->nama}}" />
           </div>

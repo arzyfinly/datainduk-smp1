@@ -76,12 +76,12 @@ class StudentClassController extends Controller
     public function destroy(StudentClass $class)
     {
         $student = Student::where('class_id', $class->id)->count();
-        if ($user > 0){
+        if ($student > 0){
             return response()
                 ->json(array(
                     'error'   => true,
                     'title'   => 'Denied',
-                    'message' => 'Tidak bisa menghapus kelas dikarenakan masih ada siswa di kelas ' + $class->nama
+                    'message' => 'Tidak bisa menghapus kelas dikarenakan masih ada siswa di kelas ini'
                 ));
         }else{
             $class->delete();
