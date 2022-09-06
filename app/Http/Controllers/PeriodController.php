@@ -38,9 +38,25 @@ class PeriodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PeriodRequest $request)
     {
-        //
+        $data  = $request->all();
+        $period = Period::create($data);   
+        
+        if ($period) {
+            return redirect()
+                ->route('periods.index')
+                ->with([
+                    'success' => 'Periode berhasil ditambahkan'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Terdapat masalah, silahkan coba lagi '
+                ]);
+        }
     }
 
     /**
