@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Period</a></li>
-          <li class="breadcrumb-item active" aria-current="page"> Create Mata Pelajaran </li>
+          <li class="breadcrumb-item active" aria-current="page"> Create Periode </li>
         </ol>
     </nav>
 </div>
