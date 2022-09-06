@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
 use Illuminate\Http\Request;
-use App\Models\Employee;
-use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\LessonRequest;
 
-class EmployeeController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
-        return view ('admin.employee.index', compact('employees'));
+
+        $lessons = Lesson::all();    
+        return view('admin.lesson.index', compact('lessons'));
     }
 
     /**
@@ -26,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('admin.employee.create');
+        return view('admin.lesson.create');
     }
 
     /**
@@ -35,15 +36,16 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EmployeeRequest $request)
+    public function store(LessonRequest $request)
     {
-        $data = $request->all(); 
-        $employee = Employee::create($data);
-        if ($employee) {
+        $data  = $request->all();
+        $lesson = Lesson::create($data);   
+        
+        if ($lesson) {
             return redirect()
-                ->route('employees.index')
+                ->route('lessons.index')
                 ->with([
-                    'success' => 'Pegawai berhasil ditambahkan'
+                    'success' => 'Kelas berhasil ditambahkan'
                 ]);
         } else {
             return redirect()
@@ -58,10 +60,10 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Lesson $lesson)
     {
         //
     }
@@ -69,50 +71,50 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit(Lesson $lesson)
     {
-        return view ('admin.employee.edit', compact ('employee'));
+        return view('admin.lesson.edit', compact('lesson'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(EmployeeRequest $request, Employee $employee)
+    public function update(LessonRequest $request, Lesson $lesson)
     {
         $data = $request->all();
-        $employee->update($data);
-        return redirect('/employees');
+        $lesson->update($data);           
+        return redirect('/lessons');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
-    {
-        $employee->delete();   
-        if ($employee){
+    public function destroy(Lesson $lesson)
+    {        
+        $lesson->delete();   
+        if ($lesson){
             return response()
                 ->json(array(
                     'success' => true,
                     'title'   => 'Success',
-                    'message' => 'Pegawai berhasil terhapus permanent :)'
+                    'message' => 'Mata Pelajaran berhasil terhapus permanent :)'
                 ));
         }else {
             return response()
                 ->json(array(
                     'error' => false,
                     'title'   => 'Gagal',
-                    'message' => 'Gagal menghapus pegawai :)'
+                    'message' => 'Gagal menghapus mata pelajaran :)'
                 ));
         }
     }
