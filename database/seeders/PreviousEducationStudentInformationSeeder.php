@@ -18,7 +18,7 @@ class PreviousEducationStudentInformationSeeder extends Seeder
         $previousEducationStudentInformation = [
             [
 
-                'asal_sekolah' => 'sDN KOLOR II ',              
+                'asal_sekolah' => 'SDN KOLOR II ',              
                 'tanggal_skhun' => Carbon::createFromDate(2022, 8, 10, 0),  
                 'no_skhun' => '1111111',  
                 'tanggal_ijazah' => Carbon::createFromDate(2022, 8, 24, 0),                   

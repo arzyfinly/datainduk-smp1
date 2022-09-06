@@ -8,6 +8,18 @@
     </a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="{{ route('periods.index') }}">
+      <i class="mdi mdi-contacts menu-icon"></i>
+      <span class="menu-title">Data Periode</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('lessons.index') }}">
+      <i class="mdi mdi-contacts menu-icon"></i>
+      <span class="menu-title">Mata Pelajaran</span>
+    </a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="{{ route('students.index') }}">
       <i class="mdi mdi-contacts menu-icon"></i>
       <span class="menu-title">Data Siswa</span>

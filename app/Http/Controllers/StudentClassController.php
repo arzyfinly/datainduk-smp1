@@ -40,14 +40,14 @@ class StudentClassController extends Controller
             return redirect()
                 ->route('classes.index')
                 ->with([
-                    'success' => 'New class has been created successfully'
+                    'success' => 'Kelas berhasil ditambahkan'
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem occurred, please try again'
+                    'error' => 'Terdapat masalah, silahkan coba lagi '
                 ]);
         }
     }
