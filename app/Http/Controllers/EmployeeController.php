@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employee;
+use App\Http\Requests\EmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -13,7 +15,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::all();
+        return view ('admin.employee.index', compact('employees'));
     }
 
     /**
@@ -23,7 +26,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.employee.create');
     }
 
     /**
@@ -32,9 +35,24 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        //
+        $data = $request->all(); 
+        $employee = Employee::create($data);
+        if ($employee) {
+            return redirect()
+                ->route('employees.index')
+                ->with([
+                    'success' => 'Pegawai berhasil ditambahkan'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Terdapat masalah, silahkan coba lagi '
+                ]);
+        }
     }
 
     /**
@@ -54,9 +72,9 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Employee $employee)
     {
-        //
+        return view ('admin.employee.edit', compact ('employee'));
     }
 
     /**
@@ -66,9 +84,11 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
-        //
+        $data = $request->all();
+        $employee->update($data);
+        return redirect('/employees');
     }
 
     /**
@@ -77,8 +97,23 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();   
+        if ($employee){
+            return response()
+                ->json(array(
+                    'success' => true,
+                    'title'   => 'Success',
+                    'message' => 'Pegawai berhasil terhapus permanent :)'
+                ));
+        }else {
+            return response()
+                ->json(array(
+                    'error' => false,
+                    'title'   => 'Gagal',
+                    'message' => 'Gagal menghapus pegawai :)'
+                ));
+        }
     }
 }

@@ -100,20 +100,19 @@ class LessonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Lesson $lesson)
-    {
-       
+    {        
         $lesson->delete();   
-        if ($lesson > 0){
+        if ($lesson){
             return response()
                 ->json(array(
                     'success' => true,
                     'title'   => 'Success',
-                    'message' => 'Kelas berhasil terhapus permanent :)'
+                    'message' => 'Mata Pelajaran berhasil terhapus permanent :)'
                 ));
         }else {
             return response()
                 ->json(array(
-                    'error' => true,
+                    'error' => false,
                     'title'   => 'Gagal',
                     'message' => 'Gagal menghapus mata pelajaran :)'
                 ));

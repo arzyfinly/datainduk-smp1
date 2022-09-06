@@ -13,7 +13,7 @@
 
         swalWithBootstrapButtons.fire({
             title: 'Apakah Kamu Yakin ?',
-            text: "Mata Pelajaran akan terhapus permanent !!",
+            text: "Pegawai akan terhapus permanent !!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Hapus',
@@ -25,7 +25,7 @@
 
                     $.ajax({
                         type: 'POST',
-                        url: "lessons/" + id,
+                        url: "employees/" + id,
                         data: {
                             "_token": "{{ csrf_token() }}",
                             "_method": "DELETE",
@@ -63,7 +63,7 @@
             ) {
                 swalWithBootstrapButtons.fire(
                     'Batal',
-                    'Mata Pelajaran tetap aman :)',
+                    'Pegawai tetap aman :)',
                     'error'
                 );
             }

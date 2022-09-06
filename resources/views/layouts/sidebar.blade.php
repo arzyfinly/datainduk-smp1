@@ -8,29 +8,37 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('periods.index') }}">
-      <i class="mdi mdi-contacts menu-icon"></i>
-      <span class="menu-title">Data Periode</span>
+    <a class="nav-link" data-toggle="collapse" href="#ui-master" aria-expanded="false" aria-controls="ui-master">
+      <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+      <span class="menu-title">Master</span>
+      <i class="menu-arrow"></i>
     </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('lessons.index') }}">
-      <i class="mdi mdi-contacts menu-icon"></i>
-      <span class="menu-title">Mata Pelajaran</span>
-    </a>
-  </li>
+    <div class="collapse" id="ui-master">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('periods.index')}}">Data Periode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('lessons.index')}}">Mata Pelajaran</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('classes.index')}}">Data Kelas</a>
+        </li>
+      </ul>
+    </div>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="{{ route('students.index') }}">
       <i class="mdi mdi-contacts menu-icon"></i>
       <span class="menu-title">Data Siswa</span>
     </a>
   </li>
-  <li class="nav-item">
+  {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('classes.index') }}">
       <i class="mdi mdi-format-list-bulleted menu-icon"></i>
       <span class="menu-title">Data Kelas</span>
     </a>
-  </li>
+  </li> --}}
   {{-- <li class="nav-item">
     <a class="nav-link" href="pages/charts/chartjs.html">
       <i class="mdi mdi-chart-bar menu-icon"></i>
@@ -72,7 +80,7 @@
     <div class="collapse" id="ui-pegawai">
       <ul class="nav flex-column sub-menu">
         <li class="nav-item">
-          <a class="nav-link" href="pages/ui-features/buttons.html">Data Induk Pegawai</a>
+          <a class="nav-link" href="{{route('employees.index')}}">Data Induk Pegawai</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
