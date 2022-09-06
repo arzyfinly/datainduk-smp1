@@ -15,6 +15,10 @@ class CreateStudentHobbiesTable extends Migration
     {
         Schema::create('student_hobbies', function (Blueprint $table) {
             $table->id();            
+            $table->string('kesenian')->nullable();            
+            $table->string('kesehatan_jasmani')->nullable();            
+            $table->string('keorganisasian')->nullable();            
+            $table->string('lain_lain')->nullable();            
             $table->timestamps();
         });
     }

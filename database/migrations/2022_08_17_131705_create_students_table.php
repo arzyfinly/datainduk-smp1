@@ -17,12 +17,12 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('nisn');
             $table->foreignId('class_id')->constrained('student_classes');        
-            $table->foreignId('personal_id')->nullable()->constrained('personal_student_details');        
-            $table->foreignId('health_id')->nullable()->constrained('health_student_information');        
-            $table->foreignId('residence_id')->nullable()->constrained('residence_student_information');        
-            $table->foreignId('guardian_id')->nullable()->constrained('guardian_student_information');        
-            $table->foreignId('previous_education_id')->nullable()->constrained('previous_education_student_information');        
-            $table->foreignId('hobby_id')->nullable()->constrained('student_hobbies');        
+            $table->foreignId('personal_id')->nullable()->constrained('personal_student_details')->onDelete('cascade');        
+            $table->foreignId('health_id')->nullable()->constrained('health_student_information')->onDelete('cascade');        
+            $table->foreignId('residence_id')->nullable()->constrained('residence_student_information')->onDelete('cascade');        
+            $table->foreignId('guardian_id')->nullable()->constrained('guardian_student_information')->onDelete('cascade');
+            $table->foreignId('previous_education_id')->nullable()->constrained('previous_education_student_information')->onDelete('cascade');        
+            $table->foreignId('hobby_id')->nullable()->constrained('student_hobbies')->onDelete('cascade');
             $table->timestamps();
         });
     }

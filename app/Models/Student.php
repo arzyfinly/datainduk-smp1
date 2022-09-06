@@ -12,7 +12,12 @@ class Student extends Model
     protected $fillable = [
         'nisn',
         'class_id',
-               
+        'personal_id',       
+        'health_id',       
+        'residence_id',       
+        'guardian_id',       
+        'previous_education_id',       
+        'hobby_id',
     ];
     protected $nullable = [
         'personal_id',       

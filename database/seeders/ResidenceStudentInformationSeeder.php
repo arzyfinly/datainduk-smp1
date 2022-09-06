@@ -16,7 +16,6 @@ class ResidenceStudentInformationSeeder extends Seeder
     {
         $residenceStudentInformation = [
             [
-
                 'alamat' => 'Kolor',  
                 'no_hp' => '087743331758',  
                 'tinggal_dengan' => 'Orang Tua',  

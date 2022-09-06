@@ -14,7 +14,7 @@ class CreatePersonalStudentDetailsTable extends Migration
     public function up()
     {
         Schema::create('personal_student_details', function (Blueprint $table) {
-            $table->id();              
+            $table->id();
             $table->string('nama_lengkap');   
             $table->string('nama_panggilan');   
             $table->string('jenis_kelamin');   

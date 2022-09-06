@@ -9,7 +9,17 @@ class StudentHobbie extends Model
 {
     use HasFactory;
 
-    protected $fillable = [     
+    protected $fillable = [  
+        'kesenian',
+        'kesehatan_jasmani',
+        'keorganisasian',   
+        'lain_lain',   
+    ];
+    protected $nullable = [  
+        'kesenian',
+        'kesehatan_jasmani',
+        'keorganisasian',   
+        'lain_lain',   
     ];
     
 }

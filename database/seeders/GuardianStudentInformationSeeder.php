@@ -17,7 +17,6 @@ class GuardianStudentInformationSeeder extends Seeder
     {
         $guardianStudentInformation = [
             [               
-
                 'nama' => 'Farid Hariyanto',                  
                 'tempat_lahir' => 'Bangkalan',  
                 'tanggal_lahir' => Carbon::createFromDate(1972, 6, 16, 0),  
