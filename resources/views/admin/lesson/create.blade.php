@@ -17,7 +17,17 @@
       <div class="card-body">
         <h4 class="card-title">Create Mata Pelajaran</h4>      
         <form class="forms-sample" action="{{route('lessons.store')}}" method="POST">
-          @csrf        
+          @csrf   
+               
+          <div class="form-group">
+            <label >Kelas</label>            
+              <select name="kelas" class="form-control">
+                  <option value=""> --Pilih Kelas-- </option>
+                  @foreach ($classes as $class)
+                      <option value="{{$class->id}}"> {{ $class->nama }} </option>
+                  @endforeach
+              </select>          
+          </div>
           <div class="form-group">
             <label>Nama</label>
             <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"  required autocomplete="nama" />

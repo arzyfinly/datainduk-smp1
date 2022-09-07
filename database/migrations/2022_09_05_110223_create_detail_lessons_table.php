@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLessonsTable extends Migration
+class CreateDetailLessonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateLessonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        Schema::create('detail_lessons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('class_id')->nullable()->constrained('student_classes');
-            $table->foreignId('detail_lesson_id')->nullable()->constrained('detail_lessons');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateLessonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('detail_lessons');
     }
 }

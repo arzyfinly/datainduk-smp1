@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Models\DetailLesson;
+use App\Models\StudentClass;
 use Illuminate\Http\Request;
 use App\Http\Requests\LessonRequest;
 
@@ -16,7 +18,8 @@ class LessonController extends Controller
     public function index()
     {
 
-        $lessons = Lesson::all();    
+        $lessons = Lesson::all();   
+        // dd($lessons); 
         return view('admin.lesson.index', compact('lessons'));
     }
 
@@ -27,7 +30,8 @@ class LessonController extends Controller
      */
     public function create()
     {
-        return view('admin.lesson.create');
+        $classes = StudentClass::all();
+        return view('admin.lesson.create', compact('classes'));
     }
 
     /**
@@ -36,25 +40,28 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LessonRequest $request)
+    public function store(Request $request)
     {
-        $data  = $request->all();
-        $lesson = Lesson::create($data);   
-        
-        if ($lesson) {
-            return redirect()
-                ->route('lessons.index')
-                ->with([
-                    'success' => 'Kelas berhasil ditambahkan'
-                ]);
-        } else {
-            return redirect()
-                ->back()
-                ->withInput()
-                ->with([
-                    'error' => 'Terdapat masalah, silahkan coba lagi '
-                ]);
+        $data  = $request->validate([
+            'kelas' =>'required|string',
+            'nama' =>'required|string',
+        ]);
+
+        try{
+            DetailLesson::create([
+                'nama' => $data['nama'],
+            ]);
+
+            $detail_lesson_id = DetailLesson::latest()->first()->id;
+
+            Lesson::create([
+                'class_id' =>$data['kelas'],
+                'detail_lesson_id' =>$detail_lesson_id,
+            ]);
+        } catch (Exception $exception){
+            return redirect()->route('lessons.create');
         }
+        return redirect()->route('lessons.index');
     }
 
     /**
@@ -74,9 +81,10 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lesson $lesson)
+    public function edit(Lesson $lesson )
     {
-        return view('admin.lesson.edit', compact('lesson'));
+        $classes = StudentClass::all();
+        return view('admin.lesson.edit', compact('lesson','classes'));
     }
 
     /**
@@ -86,10 +94,13 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(LessonRequest $request, Lesson $lesson)
+    public function update(Request $request, Lesson $lesson)
     {
-        $data = $request->all();
-        $lesson->update($data);           
+        $data  = $request->validate([
+            'kelas' =>'required|string',
+            'nama' =>'required|string',
+        ]);
+        $lesson->update([$data]);           
         return redirect('/lessons');
     }
 

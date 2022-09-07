@@ -20,8 +20,17 @@
           @csrf
           @method('PUT')
           <div class="form-group">
+            <label>Kelas</label>
+            <select name="kelas" class="form-control">
+              <option value=""> --Pilih Kelas-- </option>
+              @foreach ($classes as $class)
+                  <option value="{{$class->id}}"> {{ $class->nama }} </option>
+              @endforeach
+          </select>  
+          </div>
+          <div class="form-group">
             <label>Nama</label>
-            <input name="nama" type="text" class="form-control" id="nama" value="{{$lesson->nama}}" />
+            <input name="nama" type="text" class="form-control" id="nama" value="{{$lesson->detailLesson->nama}}" />
           </div>
           <button type="submit" class="btn btn-primary mr-2"> Update </button>
           <button class="btn btn-light">Cancel</button>

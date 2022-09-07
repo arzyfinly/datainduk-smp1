@@ -48,7 +48,7 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $period->tahun_ajaran }}</td>                  
-                  <td>{{ $period->status_id }}</td>                  
+                  <td>{{ $period->periodStatuses->nama }}</td>                  
                   <td> 
                     <a class="btn btn-sm btn-warning text-light" href="{{ route('periods.edit', $period->id) }}"><i class="mdi mdi-lead-pencil"></i></a>
                     &nbsp;

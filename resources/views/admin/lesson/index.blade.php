@@ -30,14 +30,16 @@
               <thead class="thead-light">
                 <tr>
                   <th>#</th>
-                  <th>Nama</th>                                    
+                  <th>Kelas</th>                                    
+                  <th>Mata Pelajaran</th>                                    
                   <th>Action</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>#</th>
-                  <th>Nama</th>                                  
+                  <th>Kelas</th>                                  
+                  <th>Mata Pelajaran</th>                                  
                   <th>Action</th>
                 </tr>
               </tfoot>
@@ -45,7 +47,8 @@
                 @foreach ($lessons as $lesson)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $lesson->nama }}</td>                  
+                  <td>{{ $lesson->class->nama }}</td>                  
+                  <td>{{ $lesson->detailLesson->nama }}</td>                  
                   <td> 
                     <a class="btn btn-sm btn-warning text-light" href="{{ route('lessons.edit', $lesson->id) }}"><i class="mdi mdi-lead-pencil"></i></a>
                     &nbsp;
