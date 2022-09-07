@@ -20,7 +20,12 @@
           @csrf        
           <div class="form-group">
             <label>Nama</label>
-            <input name="nama" type="text" class="form-control" id="nama"  />
+            <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"  required autocomplete="nama" />
+            @error('nama')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
           </div>           
           <button type="submit" class="btn btn-primary mr-2"> Save </button>
           <button class="btn btn-light">Cancel</button>
