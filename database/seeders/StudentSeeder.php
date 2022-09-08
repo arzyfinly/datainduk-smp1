@@ -19,7 +19,7 @@ class StudentSeeder extends Seeder
                 'residence_id'=> '1',       
                 'guardian_id'=> '1',       
                 'previous_education_id'=> '1',       
-                'hobby_id'=> null,                             
+                'hobby_id'=> '1',                             
             ],
            
         ];

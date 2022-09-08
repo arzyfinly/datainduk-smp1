@@ -7,8 +7,10 @@ use App\Models\{
     Student, GuardianStudentInformation, HealthStudentInformation, PersonalStudentDetail,
     PreviousEducationStudentInformation, ResidenceStudentInformation, StudentClass, StudentHobbie
 };
+use App\Http\Requests\StudentRequest;
 use Exception;
 use validated;
+use DB;
 
 class StudentController extends Controller
 {
@@ -40,59 +42,12 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
-        $data = $request->validate([
-            'nisn'                      => 'required|string',
-            'kelas'                     => 'required|string',
-            "nama_lengkap"              => 'required|string',
-            "nama_panggilan"            => 'required|string',
-            "tempat_lahir"              => 'required|string',
-            "tgl_lahir"                 => 'required',
-            "jenis_kelamin"             => 'required|string',
-            "agama"                     => 'required|string',
-            "kewarganegaraan"           => 'required|string',
-            "anak_ke"                   => 'required|string',
-            "jumlah_sodara_kandung"     => 'required|string',
-            "jumlah_sodara_tiri"        => 'required|string',
-            "jumlah_sodara_angkat"      => 'required|string',
-            "status_yatim"              => 'required|string',
-            "bahasa_keseharian"         => 'required|string',
-            "alamat"                    => 'required|string',
-            "no_hp"                     => 'required|string',
-            "tinggal_dengan"            => 'required',
-            "jarak_kesekolah"           => 'required|string',
-            "gol_darah"                 => 'required|string',
-            "riwayat_penyakit"          => 'required|string',
-            "kelainan_jasmani"          => 'required|string',
-            "tinggi_badan"              => 'required|string',
-            "berat_badan"               => 'required|string',
-            "guardian_name"             => 'required|string',
-            "guardian_tempat_lahir"     => 'required',
-            "guardian_tanggal_lahir"    => 'required',
-            "guardian_agama"            => 'required|string',
-            "guardian_kewarganegaraan"  => 'required|string',
-            "guardian_hubungan_keluarga"=> 'required|string',
-            "guardian_ijazah_tertinggi" => 'required|string',
-            "guardian_pekerjaan"        => 'required|string',
-            "guardian_penghasilan"      => 'required|string',
-            "guardian_alamt"            => 'required|string',
-            "guardian_no_hp"            => 'required|string',
-            "asal_sekolah"              => 'required|string',
-            "tgl_skhun"                 => 'required',
-            "no_skhun"                  => 'required|string',
-            "tanggal_ijazah"            => 'required',
-            "no_ijazah"                 => 'required|string',
-            "pindahan_dari_sekolah"     => 'required|string',
-            "diterima_dikelas"          => 'required|string',
-            "kelompok"                  => 'required|string',
-            "tanggal_penerimaan"        => 'required',
-            "kesenian"                  => 'nullable|string',
-            "kesehatan_jasmani"         => 'nullable|string',
-            "keorganisasian"            => 'nullable|string',
-            "lain_lain"                 => 'nullable|string',
-        ]);
+        $data = $request->all();
         
+        DB::beginTransaction();
+
         try {
             StudentHobbie::create([
                 'kesenian' => $data['kesenian'],
@@ -103,7 +58,7 @@ class StudentController extends Controller
 
             
             GuardianStudentInformation::create([
-                'nama' => $data['guardian_name'],
+                'nama' => $data['guardian_nama'],
                 'tempat_lahir' => $data['guardian_tempat_lahir'],
                 'tanggal_lahir' => $data['guardian_tanggal_lahir'],
                 'agama' => $data['guardian_agama'],
@@ -111,8 +66,8 @@ class StudentController extends Controller
                 'hubungan_keluarga' => $data['guardian_hubungan_keluarga'],
                 'ijazah_tertinggi' => $data['guardian_ijazah_tertinggi'],
                 'pekerjaan' => $data['guardian_pekerjaan'],
-                'penghasilan_perbulan' => $data['guardian_penghasilan'],
-                'alamat_rumah' => $data['guardian_alamt'],
+                'penghasilan_perbulan' => $data['guardian_penghasilan_perbulan'],
+                'alamat_rumah' => $data['guardian_alamat'],
                 'no_hp' => $data['guardian_no_hp'],
             ]);
 
@@ -128,21 +83,21 @@ class StudentController extends Controller
                 'nama_lengkap' => $data['nama_lengkap'],
                 'nama_panggilan' => $data['nama_panggilan'],
                 'jenis_kelamin' => $data['jenis_kelamin'],
-                'tanggal_lahir' => $data['tgl_lahir'],
+                'tanggal_lahir' => $data['tanggal_lahir'],
                 'tempat_lahir' => $data['tempat_lahir'],
                 'agama' => $data['agama'],
                 'kewarganegaraan' => $data['kewarganegaraan'],
                 'anak_ke' => $data['anak_ke'],
-                'jumlah_sodara_tiri' => $data['jumlah_sodara_tiri'],
-                'jumlah_sodara_kandung' => $data['jumlah_sodara_kandung'],
-                'jumlah_sodara_angkat' => $data['jumlah_sodara_angkat'],
+                'jumlah_saudara_tiri' => $data['jumlah_saudara_tiri'],
+                'jumlah_saudara_kandung' => $data['jumlah_saudara_kandung'],
+                'jumlah_saudara_angkat' => $data['jumlah_saudara_angkat'],
                 'status_yatim' => $data['status_yatim'],
                 'bahasa_keseharian' => $data['bahasa_keseharian'],
             ]);
             
             PreviousEducationStudentInformation::create([
                 'asal_sekolah' => $data['asal_sekolah'],
-                'tanggal_skhun' => $data['tgl_skhun'],
+                'tanggal_skhun' => $data['tanggal_skhun'],
                 'no_skhun' => $data['no_skhun'],
                 'tanggal_ijazah' => $data['tanggal_ijazah'],
                 'no_ijazah' => $data['no_ijazah'],
@@ -176,9 +131,9 @@ class StudentController extends Controller
                 'previous_education_id' => $previous_education_id,
                 'hobby_id' => $hobby_id,
             ]);
-
-        } catch (Exception $exception) {
-            dd($exception);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
             return redirect()->route('students.create');
         }
         
@@ -209,7 +164,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('admin.student.edit', compact('student'));
+        $classes = StudentClass::all();
+        return view('admin.student.edit', compact('student','classes'));
     }
 
     /**
@@ -221,7 +177,72 @@ class StudentController extends Controller
      */
     public function update(StudentRequest $request, Student $student)
     {
-        //
+        $data = $request->all();
+        
+        $hobby = StudentHobbie::find($student->hobby_id);
+        $guardian = GuardianStudentInformation::find($student->guardian_id);
+        $health = HealthStudentInformation::find($student->health_id);
+        $personal = PersonalStudentDetail::find($student->personal_id);
+        $previous_education = PreviousEducationStudentInformation::find($student->previous_education_id);
+        $residence = ResidenceStudentInformation::find($student->residence_id);
+
+        $hobby->kesenian                            = $data['kesenian'];
+        $hobby->kesehatan_jasmani                   = $data['kesehatan_jasmani'];
+        $hobby->keorganisasian                      = $data['keorganisasian'];
+        $hobby->lain_lain                           = $data['lain_lain'];
+        $guardian->nama                             = $data['guardian_nama'];
+        $guardian->tempat_lahir                     = $data['guardian_tempat_lahir'];
+        $guardian->tanggal_lahir                    = $data['guardian_tanggal_lahir'];
+        $guardian->agama                            = $data['guardian_agama'];
+        $guardian->kewarganegaraan                  = $data['guardian_kewarganegaraan'];
+        $guardian->hubungan_keluarga                = $data['guardian_hubungan_keluarga'];
+        $guardian->ijazah_tertinggi                 = $data['guardian_ijazah_tertinggi'];
+        $guardian->pekerjaan                        = $data['guardian_pekerjaan'];
+        $guardian->penghasilan_perbulan             = $data['guardian_penghasilan_perbulan'];
+        $guardian->alamat_rumah                     = $data['guardian_alamat_rumah'];
+        $guardian->no_hp                            = $data['guardian_no_hp'];
+        $health->gol_darah                          = $data['gol_darah'];
+        $health->riwayat_penyakit                   = $data['riwayat_penyakit'];
+        $health->kelainan_jasmani                   = $data['kelainan_jasmani'];
+        $health->tinggi_badan                       = $data['tinggi_badan'];
+        $health->berat_badan                        = $data['berat_badan'];
+        $personal->nama_lengkap                     = $data['nama_lengkap'];
+        $personal->nama_panggilan                   = $data['nama_panggilan'];
+        $personal->jenis_kelamin                    = $data['jenis_kelamin'];
+        $personal->tempat_lahir                     = $data['tempat_lahir'];
+        $personal->tanggal_lahir                    = $data['tanggal_lahir'];
+        $personal->agama                            = $data['agama'];
+        $personal->kewarganegaraan                  = $data['kewarganegaraan'];
+        $personal->anak_ke                          = $data['anak_ke'];
+        $personal->jumlah_saudara_kandung           = $data['jumlah_saudara_kandung'];
+        $personal->jumlah_saudara_tiri              = $data['jumlah_saudara_tiri'];
+        $personal->jumlah_saudara_angkat            = $data['jumlah_saudara_angkat'];
+        $personal->status_yatim                     = $data['status_yatim'];
+        $personal->bahasa_keseharian                = $data['bahasa_keseharian'];
+        $previous_education->asal_sekolah           = $data['asal_sekolah'];
+        $previous_education->tanggal_skhun          = $data['tanggal_skhun'];
+        $previous_education->no_skhun               = $data['no_skhun'];
+        $previous_education->tanggal_ijazah         = $data['tanggal_ijazah'];
+        $previous_education->no_ijazah              = $data['no_ijazah'];
+        $previous_education->pindahan_dari_sekolah  = $data['pindahan_dari_sekolah'];
+        $previous_education->diterima_dikelas       = $data['diterima_dikelas'];
+        $previous_education->kelompok               = $data['kelompok'];
+        $previous_education->tanggal_penerimaan     = $data['tanggal_penerimaan'];
+        $residence->alamat                          = $data['alamat'];
+        $residence->no_hp                           = $data['no_hp'];
+        $residence->tinggal_dengan                  = $data['tinggal_dengan'];
+        $residence->jarak_kesekolah                 = $data['jarak_kesekolah'];
+        $student->nisn                              = $data['nisn'];
+        $student->class_id                          = $data['class_id'];
+
+        $hobby->save();
+        $guardian->save();
+        $health->save();
+        $personal->save();
+        $previous_education->save();
+        $residence->save();
+        $student->save();
+        return redirect()->route('students.index');
     }
 
     /**

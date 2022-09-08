@@ -19,8 +19,8 @@ class HealthStudentInformationSeeder extends Seeder
                 'gol_darah' => 'O',  
                 'riwayat_penyakit' => '-',  
                 'kelainan_jasmani' => '-',  
-                'tinggi_badan' => '162 cm',                  
-                'berat_badan' => '43 Kg',              
+                'tinggi_badan' => '162',                  
+                'berat_badan' => '43',              
             ],
        
         ];

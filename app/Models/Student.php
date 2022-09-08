@@ -31,7 +31,7 @@ class Student extends Model
     protected $with = [
         'class',
         'personal',
-        'heatlh',
+        'health',
         'residence',
         'guardian',
         'previousEducation',
@@ -49,7 +49,7 @@ class Student extends Model
         return $this->belongsTo(PersonalStudentDetail::class);
     }
 
-    public function heatlh()
+    public function health()
     {
         return $this->belongsTo(HealthStudentInformation::class);
     }

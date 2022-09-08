@@ -19,7 +19,7 @@ class StudentHobbySeeder extends Seeder
                 'kesenian' => 'Nyanyi',  
                 'kesehatan_jasmani' => 'Workout',  
                 'keorganisasian' => 'HMPS',  
-                'lain_lain' => '3 Km',                  
+                'lain_lain' => '-',                  
             ],
        
         ];
