@@ -29,8 +29,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Kelas</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label">Kelas</label>                                
                                     <div class="col-sm-8">
                                         <select name="class_id" class="form-control">
                                             <option value=""> --Pilih Kelas-- </option>
@@ -38,8 +37,7 @@
                                                 <option value="{{$class->id}}"> {{ $class->nama }} </option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                </div>
+                                    </div>                                
                             </div>
                         </div>
                     </div>
