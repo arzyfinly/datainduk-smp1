@@ -67,7 +67,7 @@ class StudentController extends Controller
                 'ijazah_tertinggi' => $data['guardian_ijazah_tertinggi'],
                 'pekerjaan' => $data['guardian_pekerjaan'],
                 'penghasilan_perbulan' => $data['guardian_penghasilan_perbulan'],
-                'alamat_rumah' => $data['guardian_alamat'],
+                'alamat_rumah' => $data['guardian_alamat_rumah'],
                 'no_hp' => $data['guardian_no_hp'],
             ]);
 
@@ -123,7 +123,7 @@ class StudentController extends Controller
 
             Student::create([
                 'nisn' => $data['nisn'],
-                'class_id' => $data['kelas'],
+                'class_id' => $data['class_id'],
                 'personal_id' => $personal_id,
                 'health_id' => $health_id,
                 'residence_id' => $residence_id,
@@ -133,6 +133,7 @@ class StudentController extends Controller
             ]);
             DB::commit();
         } catch (\Exception $e) {
+            dd($e);
             DB::rollback();
             return redirect()->route('students.create');
         }

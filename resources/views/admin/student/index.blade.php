@@ -56,6 +56,8 @@
                     <td> {{ $student->personal->jenis_kelamin }} </td>
                     <td> {{ $student->class->nama }} </td>
                     <td> 
+                      <a class="btn btn-sm btn-info" href="{{ route('students.show', $student->id) }}"><i class="mdi mdi-eye"></i></a>
+                      &nbsp;
                       <a class="btn btn-sm btn-warning text-light" href="{{ route('students.edit', $student->id) }}"><i class="mdi mdi-lead-pencil"></i></a>
                       &nbsp;
                       <button onclick="deleteItem(this)" data-id="{{ $student->id }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
