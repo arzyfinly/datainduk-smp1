@@ -1,21 +1,26 @@
 @extends('app')
 @section('content')
     <div class="row">
-        <div class="container d-flex justify-content-center align-items-center">
-            <div class="card-profil py-6">
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="round-image">
-                        <img src="{{ asset('assets/images/faces/face28.png') }}" class="rounded-circle" width="97">
+        <div class="col">
+                <div class="card-profil py-6">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="round-image">
+                            <img src="{{ asset('assets/images/faces/face28.png') }}" class="rounded-circle" width="97">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="mt-3">{{ $student->personal->nama_lengkap }}</h4>
+                        <span>NISN : {{ $student->nisn }}</span><br>
+                        <span>KELAS : {{ $student->class->nama }}</span>
+                        
                     </div>
                 </div>
-
-                <div class="text-center">
-                    <h4 class="mt-3">{{ $student->personal->nama_lengkap }}</h4>
-                    <span>NISN : {{ $student->nisn }}</span><br>
-                    <span>KELAS : {{ $student->class->nama }}</span>
-                </div>
-            </div>
         </div>
+        <div class="col">
+            <div class="d-flex justify-content-end align-items-right " style="margin-top: 35%">
+            <button type="submit" class="btn btn-danger"> Export </button>
+        </div>
+    </div>
     </div>
 
     <div class="tab">
@@ -65,7 +70,8 @@
                                 <p class="mb-0">Tempat/Tanggal Lahir</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ $student->personal->tempat_lahir }} / {{ $student->personal->tanggal_lahir }}</p>
+                                <p class="text-muted mb-0">{{ $student->personal->tempat_lahir }} /
+                                    {{ $student->personal->tanggal_lahir }}</p>
                             </div>
                         </div>
                         <hr>
@@ -269,7 +275,8 @@
                                 <p class="mb-0">Tempat/Tanggal lahir</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ $student->guardian->tempat_lahir }} / {{ $student->guardian->tanggal_lahir }}</p>
+                                <p class="text-muted mb-0">{{ $student->guardian->tempat_lahir }} /
+                                    {{ $student->guardian->tanggal_lahir }}</p>
                             </div>
                         </div>
                         <hr>
@@ -488,4 +495,6 @@
             evt.currentTarget.className += " active";
         }
     </script>
+
+    
 @endsection

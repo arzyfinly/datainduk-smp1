@@ -241,7 +241,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Tinggi Badan</label>
                                 <div class="col-sm-8">
-                                    <input name="tinggi_badan" type="text" class="form-control" />
+                                    <div class="input-group">
+                                        <input type="tinggi_badan" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">Cm</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -249,7 +254,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Berat Badan</label>
                                 <div class="col-sm-8">
-                                    <input name="berat_badan" type="text" class="form-control" />
+                                    <div class="input-group">
+                                        <input type="berat_badan" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">Kg</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -336,7 +346,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Penghasilan</label>
                                 <div class="col-sm-8">
-                                    <input name="guardian_penghasilan_perbulan" type="text" class="form-control" />
+                                    <input name="guardian_penghasilan_perbulan" type="text" class="form-control" id="rupiah"/>
                                 </div>
                             </div>
                         </div>
@@ -488,4 +498,5 @@
             </div>
         </div>
     </div>
+    
 @endsection
