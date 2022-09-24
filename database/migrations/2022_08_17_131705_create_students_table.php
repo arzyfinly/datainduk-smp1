@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('nisn');
             $table->foreignId('class_id')->constrained('student_classes');        
+            $table->foreignId('group_id')->constrained('groups');        
             $table->foreignId('personal_id')->nullable()->constrained('personal_student_details')->onDelete('cascade');        
             $table->foreignId('health_id')->nullable()->constrained('health_student_information')->onDelete('cascade');        
             $table->foreignId('residence_id')->nullable()->constrained('residence_student_information')->onDelete('cascade');        

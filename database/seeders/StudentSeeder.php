@@ -14,6 +14,7 @@ class StudentSeeder extends Seeder
             [
                 'nisn' => '123456789',
                 'class_id' => '1',
+                'group_id' => '1',
                 'personal_id' => '1',       
                 'health_id'=> '1',       
                 'residence_id'=> '1',       

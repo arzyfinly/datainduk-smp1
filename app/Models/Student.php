@@ -12,6 +12,7 @@ class Student extends Model
     protected $fillable = [
         'nisn',
         'class_id',
+        'group_id',
         'personal_id',       
         'health_id',       
         'residence_id',       
@@ -30,6 +31,7 @@ class Student extends Model
 
     protected $with = [
         'class',
+        'group',
         'personal',
         'health',
         'residence',
@@ -42,6 +44,11 @@ class Student extends Model
     public function class()
     {
         return $this->belongsTo(StudentClass::class);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
     }
 
     public function personal()
