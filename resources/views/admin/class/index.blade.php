@@ -50,6 +50,8 @@
                   <td>{{ $class->nama }}</td>
                   <td>{{ $class->deskripsi }}</td>
                   <td> 
+                    <a class="btn btn-sm btn-info" href="{{ route('classes.show', $class->id) }}"><i class="mdi mdi-eye"></i></a>
+                      &nbsp;
                     <a class="btn btn-sm btn-warning text-light" href="{{ route('classes.edit', $class->id) }}"><i class="mdi mdi-lead-pencil"></i></a>
                     &nbsp;
                     <button onclick="deleteItem(this)" data-id="{{ $class->id }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>

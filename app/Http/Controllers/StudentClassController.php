@@ -53,9 +53,11 @@ class StudentClassController extends Controller
     }
 
 
-    public function show(StudentClass $studentClass)
+    public function show(Student $personal)
     {
-        // return view('admin.class.show', compact('studentClass'));
+        $student = Student::where('personal_id', $personal->id);        
+        // dd($student);
+        return view('admin.class.show', compact('student'));
     }
 
  
