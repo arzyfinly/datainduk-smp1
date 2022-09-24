@@ -23,7 +23,7 @@ class PreviousEducationStudentInformationSeeder extends Seeder
                 'tanggal_ijazah' => Carbon::createFromDate(2022, 8, 24, 0),                   
                 'no_ijazah' => '2222222',  
                 'pindahan_dari_sekolah' => '-',  
-                'diterima_dikelas' => '7-1 ',  
+                'diterima_dikelas' => '7',  
                 'kelompok' => '1',  
                 'tanggal_penerimaan' => Carbon::createFromDate(2022, 7, 1, 0),                 
             ],

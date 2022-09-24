@@ -40,6 +40,19 @@
                                     </div>                                
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Kelompok</label>
+                                <div class="col-sm-8">
+                                    <select name="group_id" class="form-control">
+                                        <option value=""> --Pilih Kelompok-- </option>
+                                        @foreach ($groups as $group)
+                                            <option value="{{$group->id}}"> {{ $group->nama }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <p class="card-description font-weight-bold">Personal </p>
                     <div class="row">
@@ -428,27 +441,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Kelompok</label>
-                                <div class="col-sm-8">
-                                    <select name="kelompok" class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        </div>                
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Tanggal Penerimaan</label>

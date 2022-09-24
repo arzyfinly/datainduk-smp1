@@ -18,7 +18,7 @@
                 <h4 class="card-title">Edit Data Siswa</h4>
                 <form class="forms-sample" method="POST" action="{{ route('students.update', $student->id) }}">
                     @csrf
-                    @method('PUT');
+                    @method('PUT')
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -30,8 +30,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Kelas</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label">Kelas</label>                                
                                     <div class="col-sm-8">
                                         <select name="class_id" class="form-control">
                                             <option value=""> --Pilih Kelas-- </option>
@@ -44,7 +43,24 @@
                                                 <option {{ $select }} value="{{$class->id}}"> {{ $class->nama }} </option>
                                             @endforeach
                                         </select>
-                                    </div>
+                                    </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Kelompok</label>
+                                <div class="col-sm-8">
+                                    <select name="group_id" class="form-control">
+                                        <option value=""> --Pilih Kelompok-- </option>
+                                        @foreach ($groups as $group)
+                                            @if ($group->id == $student->group_id)
+                                                @php($select = 'selected')
+                                            @else
+                                                @php($select = '')
+                                            @endif
+                                            <option {{ $select }} value="{{$group->id}}"> {{ $group->nama }} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -301,7 +317,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Tinggi Badan</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ $student->health->tinggi_badan }}"name="tinggi_badan" type="text" class="form-control" />
+                                    <div class="input-group">                                        
+                                        <input value="{{ $student->health->tinggi_badan }}"name="tinggi_badan" type="text" class="form-control" />
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">Cm</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +330,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Berat Badan</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ $student->health->berat_badan }}"name="berat_badan" type="text" class="form-control" />
+                                    <div class="input-group">                                        
+                                        <input value="{{ $student->health->berat_badan }}"name="berat_badan" type="text" class="form-control" />
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">Kg</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -438,7 +464,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Penghasilan</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ $student->guardian->penghasilan_perbulan }}"name="guardian_penghasilan_perbulan" type="text" class="form-control" />
+                                    <input value="{{ $student->guardian->penghasilan_perbulan }}"name="guardian_penghasilan_perbulan" type="text" class="form-control" id="rupiah"/>
                                 </div>
                             </div>
                         </div>
@@ -532,26 +558,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Kelompok</label>
-                                <div class="col-sm-8">
-                                    <select name="kelompok" class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option selected value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Tanggal Penerimaan</label>

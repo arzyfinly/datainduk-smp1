@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{
     Student, GuardianStudentInformation, HealthStudentInformation, PersonalStudentDetail,
-    PreviousEducationStudentInformation, ResidenceStudentInformation, StudentClass, StudentHobbie
+    PreviousEducationStudentInformation, ResidenceStudentInformation, StudentClass, StudentHobbie, Group
 };
 use App\Http\Requests\StudentRequest;
 use Exception;
@@ -33,7 +33,8 @@ class StudentController extends Controller
     public function create()
     {
         $classes = StudentClass::all();
-        return view('admin.student.create', compact('classes'));
+        $groups = Group::all();
+        return view('admin.student.create', compact('classes','groups'));
     }
 
     /**
@@ -166,7 +167,8 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         $classes = StudentClass::all();
-        return view('admin.student.edit', compact('student','classes'));
+        $groups = Group::all();
+        return view('admin.student.edit', compact('student','classes','groups'));
     }
 
     /**

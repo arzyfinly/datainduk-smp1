@@ -11,7 +11,7 @@
                     <div class="text-center">
                         <h4 class="mt-3">{{ $student->personal->nama_lengkap }}</h4>
                         <span>NISN : {{ $student->nisn }}</span><br>
-                        <span>KELAS : {{ $student->class->nama }}</span>
+                        <span>KELAS : {{ $student->class->nama }} - {{$student->group->nama}}</span>
                         
                     </div>
                 </div>
